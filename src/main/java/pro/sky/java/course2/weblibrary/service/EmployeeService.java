@@ -16,7 +16,7 @@ public class EmployeeService {
 
 
     public Collection<Employee> getAllEmployees() {
-      return this.employees.values();
+        return this.employees.values();
     }
 
     public Employee addEmployee(EmployeeRequest employeeRequest) {
@@ -34,8 +34,8 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeMinSum() {
-       return employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
-               .min(Comparator.comparingInt(Employee::getSalary)).get();
+        return employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
+                .min(Comparator.comparingInt(Employee::getSalary)).get();
     }
 
     public Employee getEmployeeMaxSum() {
@@ -48,6 +48,6 @@ public class EmployeeService {
             throw new RuntimeException("В списке сотрудников нет ниодного сотрудника");
         }
         int averageSum = getSalarySum()/employees.size();
-       return employees.values().stream().filter(s->s.getSalary()>averageSum).collect(Collectors.toSet());
+        return employees.values().stream().filter(s->s.getSalary()>averageSum).collect(Collectors.toSet());
     }
 }

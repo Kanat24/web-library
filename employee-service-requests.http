@@ -5,10 +5,10 @@ POST http://localhost:8080/employees
 Content-Type: application/json
 
 {
-"firstName": "Test",
-"lastName": "Test",
-"departament": 1,
-"salary": 10000
+  "firstName": "Test",
+  "lastName": "Test",
+  "departament": 1,
+  "salary": 10000
 }
 ### Создать Сотрудника 2
 POST http://localhost:8080/employees
