@@ -1,5 +1,7 @@
 package pro.sky.java.course2.weblibrary.model;
 
+import java.util.Objects;
+
 public class Employee {
     private static int counter;
     private final int id;
@@ -34,5 +36,29 @@ public class Employee {
 
     public int getSalary() {
         return salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && departament == employee.departament && salary == employee.salary && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, departament, salary);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", departament=" + departament +
+                ", salary=" + salary +
+                '}';
     }
 }

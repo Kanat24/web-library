@@ -35,12 +35,12 @@ public class EmployeeService {
 
     public Employee getEmployeeMinSum() {
         return employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
-                .min(Comparator.comparingInt(Employee::getSalary)).get();
+                .min(Comparator.comparingInt(Employee::getSalary)).orElseThrow();
     }
 
     public Employee getEmployeeMaxSum() {
         return  employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
-                .max(Comparator.comparingInt(Employee::getSalary)).get();
+                .max(Comparator.comparingInt(Employee::getSalary)).orElseThrow();
     }
 
     public Set<Employee> getEmployeeSalaryMoreAverageSum() {
