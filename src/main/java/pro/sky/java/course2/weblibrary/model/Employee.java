@@ -7,13 +7,13 @@ public class Employee {
     private final int id;
     private final String firstName;
     private final String lastName;
-    private final int departament;
+    private final int department;
     private final int salary;
 
-    public Employee(String firstName, String lastName, int departament, int salary) {
+    public Employee(String firstName, String lastName, int department, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.departament = departament;
+        this.department = department;
         this.salary = salary;
         this.id = counter++;
     }
@@ -30,8 +30,8 @@ public class Employee {
         return lastName;
     }
 
-    public int getDepartament() {
-        return departament;
+    public int getDepartment() {
+        return department;
     }
 
     public int getSalary() {
@@ -43,12 +43,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && departament == employee.departament && salary == employee.salary && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+        return department == employee.department && salary == employee.salary && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, departament, salary);
+        return Objects.hash(firstName, lastName, department, salary);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class Employee {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", departament=" + departament +
+                ", departament=" + department +
                 ", salary=" + salary +
                 '}';
     }

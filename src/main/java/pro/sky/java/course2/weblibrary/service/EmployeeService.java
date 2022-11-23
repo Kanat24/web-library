@@ -24,7 +24,7 @@ public class EmployeeService {
             throw new IllegalArgumentException("Некорректный ввод");
         }
         Employee employee = new Employee(employeeRequest.getFirstName(), employeeRequest.getLastName(),
-                employeeRequest.getDepartament(), employeeRequest.getSalary());
+                employeeRequest.getDepartment(), employeeRequest.getSalary());
         this.employees.put(employee.getId(), employee);
         return employee;
     }
@@ -50,4 +50,8 @@ public class EmployeeService {
         int averageSum = getSalarySum()/employees.size();
         return employees.values().stream().filter(s->s.getSalary()>averageSum).collect(Collectors.toSet());
     }
+    public Employee removeEmployee(int id){
+        return employees.remove(id);
+    }
+
 }
