@@ -3,8 +3,15 @@ package pro.sky.java.course2.weblibrary.record;
 public class EmployeeRequest {
     private String firstName;
     private String lastName;
-    private int departament;
+    private int department;
     private int salary;
+
+    public EmployeeRequest(String firstName, String lastName, int department, int salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.department = department;
+        this.salary = salary;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -22,12 +29,12 @@ public class EmployeeRequest {
         this.lastName = lastName;
     }
 
-    public int getDepartament() {
-        return departament;
+    public int getDepartment() {
+        return department;
     }
 
-    public void setDepartament(int departament) {
-        this.departament = departament;
+    public void setDepartment(int department) {
+        this.department = department;
     }
 
     public int getSalary() {

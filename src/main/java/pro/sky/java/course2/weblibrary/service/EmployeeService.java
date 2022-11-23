@@ -16,7 +16,7 @@ public class EmployeeService {
 
 
     public Collection<Employee> getAllEmployees() {
-      return this.employees.values();
+        return this.employees.values();
     }
 
     public Employee addEmployee(EmployeeRequest employeeRequest) {
@@ -24,7 +24,7 @@ public class EmployeeService {
             throw new IllegalArgumentException("Некорректный ввод");
         }
         Employee employee = new Employee(employeeRequest.getFirstName(), employeeRequest.getLastName(),
-                employeeRequest.getDepartament(), employeeRequest.getSalary());
+                employeeRequest.getDepartment(), employeeRequest.getSalary());
         this.employees.put(employee.getId(), employee);
         return employee;
     }
@@ -34,13 +34,13 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeMinSum() {
-       return employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
-               .min(Comparator.comparingInt(Employee::getSalary)).get();
+        return employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
+                .min(Comparator.comparingInt(Employee::getSalary)).orElseThrow();
     }
 
     public Employee getEmployeeMaxSum() {
         return  employees.values().stream().filter(Objects::nonNull).filter(s->s.getSalary()!=0)
-                .max(Comparator.comparingInt(Employee::getSalary)).get();
+                .max(Comparator.comparingInt(Employee::getSalary)).orElseThrow();
     }
 
     public Set<Employee> getEmployeeSalaryMoreAverageSum() {
@@ -48,6 +48,10 @@ public class EmployeeService {
             throw new RuntimeException("В списке сотрудников нет ниодного сотрудника");
         }
         int averageSum = getSalarySum()/employees.size();
-       return employees.values().stream().filter(s->s.getSalary()>averageSum).collect(Collectors.toSet());
+        return employees.values().stream().filter(s->s.getSalary()>averageSum).collect(Collectors.toSet());
     }
+    public Employee removeEmployee(int id){
+        return employees.remove(id);
+    }
+
 }

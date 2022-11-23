@@ -28,11 +28,11 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody EmployeeRequest employeeRequest){
-       return this.employeeService.addEmployee(employeeRequest);
+        return this.employeeService.addEmployee(employeeRequest);
     }
     @GetMapping("/employees/salary/sum")
     public int getSalarySum(){
-       return this.employeeService.getSalarySum();
+        return this.employeeService.getSalarySum();
     }
     @GetMapping("/employee/salary/min")
     public Employee getEmployeeMinSum() {
